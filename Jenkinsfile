@@ -20,8 +20,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    rsync -av --delete ./publish/ vagrant@192.168.56.10:/opt/rise/
-                    ssh -o StrictHostKeyChecking=no vagrant@192.168.56.10 "sudo systemctl restart rise"
+                    rsync -av --delete -e "ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no" ./publish/ vagrant@192.168.56.10:/opt/rise/
+                    ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no vagrant@192.168.56.10 "sudo systemctl restart rise"
                 '''
             }
         }
