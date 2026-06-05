@@ -36,7 +36,7 @@ namespace Rise.Persistence.Migrations
                     Id = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
+                    ConcurrencyStamp = table.Column<string>(type: "longtext", maxLength: 4000, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -72,10 +72,10 @@ namespace Rise.Persistence.Migrations
                     Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "int", nullable: false),
-                    PasswordHash = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
-                    SecurityStamp = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
-                    PhoneNumber = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
+                    PasswordHash = table.Column<string>(type: "longtext", maxLength: 4000, nullable: true),
+                    SecurityStamp = table.Column<string>(type: "longtext", maxLength: 4000, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "longtext", maxLength: 4000, nullable: true),
+                    PhoneNumber = table.Column<string>(type: "longtext", maxLength: 4000, nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "int", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "int", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetime", nullable: true),
