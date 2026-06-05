@@ -1,5 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Pomelo.EntityFrameworkCore.MySql.Metadata.Internal;
 
 #nullable disable
 
@@ -16,7 +17,7 @@ namespace Rise.Persistence.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: false),
                     Description = table.Column<string>(type: "longtext", maxLength: 4000, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
@@ -48,7 +49,7 @@ namespace Rise.Persistence.Migrations
                 name: "Technician",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     LastName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     AccountId = table.Column<string>(type: "varchar(36)", maxLength: 36, nullable: false),
@@ -92,7 +93,7 @@ namespace Rise.Persistence.Migrations
                 name: "RoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     RoleId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClaimType = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
                     ClaimValue = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: true)
@@ -113,9 +114,9 @@ namespace Rise.Persistence.Migrations
                 name: "Project",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: false),
-                    TechnicianId = table.Column<int>(type: "int", nullable: false),
+                    TechnicianId = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Addressline1 = table.Column<string>(type: "longtext", maxLength: 250, nullable: false),
                     Addressline2 = table.Column<string>(type: "longtext", maxLength: 250, nullable: false),
                     City = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
@@ -140,7 +141,7 @@ namespace Rise.Persistence.Migrations
                 name: "UserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClaimType = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
                     ClaimValue = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: true)
