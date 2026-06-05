@@ -95,7 +95,7 @@ namespace Rise.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     RoleId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClaimType = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
-                    ClaimValue = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
+                    ClaimValue = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -143,7 +143,7 @@ namespace Rise.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClaimType = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
-                    ClaimValue = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
+                    ClaimValue = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -209,8 +209,8 @@ namespace Rise.Persistence.Migrations
                 {
                     UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     LoginProvider = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: false),
-                    Name = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
-                    Value = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
+                    Name = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Value = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: true)
                 },
                 constraints: table =>
                 {
