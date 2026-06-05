@@ -15,8 +15,7 @@ namespace Rise.Persistence.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
@@ -46,8 +45,7 @@ namespace Rise.Persistence.Migrations
                 name: "Technician",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     LastName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     AccountId = table.Column<string>(type: "TEXT", maxLength: 36, nullable: false),
@@ -89,8 +87,7 @@ namespace Rise.Persistence.Migrations
                 name: "RoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     RoleId = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: false),
                     ClaimType = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: true),
                     ClaimValue = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: true)
@@ -110,8 +107,7 @@ namespace Rise.Persistence.Migrations
                 name: "Project",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
                     TechnicianId = table.Column<int>(type: "INTEGER", nullable: false),
                     Addressline1 = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
@@ -137,8 +133,7 @@ namespace Rise.Persistence.Migrations
                 name: "UserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
                     UserId = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: false),
                     ClaimType = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: true),
                     ClaimValue = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: true)
