@@ -38,7 +38,7 @@ try
             }
             else
             {
-                o.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+                o.UseMySql(connectionString, new MariaDbServerVersion(new Version(10, 6)));
             }            
             o.EnableDetailedErrors();
             if (builder.Environment.IsDevelopment())
