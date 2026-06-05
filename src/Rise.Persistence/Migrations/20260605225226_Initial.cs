@@ -18,7 +18,7 @@ namespace Rise.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "varchar(4000)", maxLength: 250, nullable: false),
-                    Description = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
+                    Description = table.Column<string>(type: "longtext", maxLength: 4000, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     IsDeleted = table.Column<bool>(type: "int", nullable: false, defaultValue: false)
@@ -116,8 +116,8 @@ namespace Rise.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "varchar(4000)", maxLength: 250, nullable: false),
                     TechnicianId = table.Column<int>(type: "int", nullable: false),
-                    Addressline1 = table.Column<string>(type: "varchar(4000)", maxLength: 250, nullable: false),
-                    Addressline2 = table.Column<string>(type: "varchar(4000)", maxLength: 250, nullable: false),
+                    Addressline1 = table.Column<string>(type: "longtext", maxLength: 250, nullable: false),
+                    Addressline2 = table.Column<string>(type: "longtext", maxLength: 250, nullable: false),
                     City = table.Column<string>(type: "varchar(4000)", maxLength: 50, nullable: false),
                     PostalCode = table.Column<string>(type: "varchar(4000)", maxLength: 20, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
