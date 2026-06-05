@@ -161,9 +161,9 @@ namespace Rise.Persistence.Migrations
                 name: "UserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
-                    ProviderKey = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
+                    LoginProvider = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: false),
+                    ProviderKey = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: true),
                     UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
@@ -208,7 +208,7 @@ namespace Rise.Persistence.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    LoginProvider = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
+                    LoginProvider = table.Column<string>(type: "varchar(255)", maxLength: 4000, nullable: false),
                     Name = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
                     Value = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
                 },
