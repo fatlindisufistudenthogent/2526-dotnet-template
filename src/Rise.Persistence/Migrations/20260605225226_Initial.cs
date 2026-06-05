@@ -31,9 +31,9 @@ namespace Rise.Persistence.Migrations
                 name: "Roles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
-                    Name = table.Column<string>(type: "varchar(4000)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "varchar(4000)", maxLength: 256, nullable: true),
+                    Id = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
                 },
                 constraints: table =>
@@ -62,11 +62,11 @@ namespace Rise.Persistence.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
-                    UserName = table.Column<string>(type: "varchar(4000)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "varchar(4000)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "varchar(4000)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "varchar(4000)", maxLength: 256, nullable: true),
+                    Id = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "int", nullable: false),
                     PasswordHash = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
                     SecurityStamp = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
@@ -88,7 +88,7 @@ namespace Rise.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClaimType = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
                     ClaimValue = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
                 },
@@ -134,7 +134,7 @@ namespace Rise.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
+                    UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClaimType = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
                     ClaimValue = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
                 },
@@ -156,7 +156,7 @@ namespace Rise.Persistence.Migrations
                     LoginProvider = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
                     ProviderKey = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true),
-                    UserId = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false)
+                    UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -173,8 +173,8 @@ namespace Rise.Persistence.Migrations
                 name: "UserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
-                    RoleId = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false)
+                    UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -197,7 +197,7 @@ namespace Rise.Persistence.Migrations
                 name: "UserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
+                    UserId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     LoginProvider = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
                     Name = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: false),
                     Value = table.Column<string>(type: "varchar(4000)", maxLength: 4000, nullable: true)
