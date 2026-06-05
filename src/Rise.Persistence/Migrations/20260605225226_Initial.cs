@@ -11,6 +11,7 @@ namespace Rise.Persistence.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
@@ -27,6 +28,7 @@ namespace Rise.Persistence.Migrations
                     table.PrimaryKey("PK_Product", x => x.Id);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
@@ -41,6 +43,7 @@ namespace Rise.Persistence.Migrations
                     table.PrimaryKey("PK_Roles", x => x.Id);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "Technician",
                 columns: table => new
@@ -58,6 +61,7 @@ namespace Rise.Persistence.Migrations
                     table.PrimaryKey("PK_Technician", x => x.Id);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -83,6 +87,7 @@ namespace Rise.Persistence.Migrations
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "RoleClaims",
                 columns: table => new
@@ -103,6 +108,7 @@ namespace Rise.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "Project",
                 columns: table => new
@@ -129,6 +135,7 @@ namespace Rise.Persistence.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "UserClaims",
                 columns: table => new
@@ -149,6 +156,7 @@ namespace Rise.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "UserLogins",
                 columns: table => new
@@ -169,6 +177,7 @@ namespace Rise.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "UserRoles",
                 columns: table => new
@@ -193,6 +202,7 @@ namespace Rise.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.Sql("SET FOREIGN_KEY_CHECKS=0;");
             migrationBuilder.CreateTable(
                 name: "UserTokens",
                 columns: table => new
@@ -297,3 +307,4 @@ namespace Rise.Persistence.Migrations
         }
     }
 }
+
