@@ -30,7 +30,16 @@ try
         {
             var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection") ??
                                    throw new InvalidOperationException("Connection string 'DatabaseConnection' not found.");
-            o.UseSqlite(connectionString); // Swap Sqlite for your database provider (e.g. Sql Server, MySQL, PostgreSQL, etc.).
+            // o.UseSqlite(connectionString); // Swap Sqlite for your database provider (e.g. Sql Server, MySQL, PostgreSQL, etc.).
+            // new one
+            if (builder.Environment.IsDevelopment())
+            {
+                o.UseSqlite(connectionString);
+            }
+            else
+            {
+                o.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            }            
             o.EnableDetailedErrors();
             if (builder.Environment.IsDevelopment())
             {
@@ -72,17 +81,25 @@ try
     var app = builder.Build();
     // apply Database migraticons on startup, not so wise in production (Use Generated SQL Scripts) 
     // See: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli
-    if (app.Environment.IsDevelopment())
-    {
-        using (var scope = app.Services.CreateScope())
-        {
-            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            var dbSeeder = scope.ServiceProvider.GetRequiredService<DbSeeder>();
-            // dbContext.Database.EnsureDeleted(); // Delete the database if it exists to clean it up if needed.
+    // if (app.Environment.IsDevelopment())
+    // {
+    //     using (var scope = app.Services.CreateScope())
+    //     {
+    //         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    //         var dbSeeder = scope.ServiceProvider.GetRequiredService<DbSeeder>();
+    //         // dbContext.Database.EnsureDeleted(); // Delete the database if it exists to clean it up if needed.
 
-            dbContext.Database.Migrate(); // Creates the database if it doesn't exist and applies all migrations. See Readme.md for more info.
-            await dbSeeder.SeedAsync(); // Seeds the database with some test data.
-        }
+    //         dbContext.Database.Migrate(); // Creates the database if it doesn't exist and applies all migrations. See Readme.md for more info.
+    //         await dbSeeder.SeedAsync(); // Seeds the database with some test data.
+    //     }
+    // }
+    // new one
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var dbSeeder = scope.ServiceProvider.GetRequiredService<DbSeeder>();
+        dbContext.Database.Migrate();
+        await dbSeeder.SeedAsync();
     }
     // Theses middlewares are strict in order of calling!
     app.UseHttpsRedirection()
