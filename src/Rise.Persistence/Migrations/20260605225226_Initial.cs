@@ -117,7 +117,7 @@ namespace Rise.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", 1),
                     Name = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: false),
-                    TechnicianId = table.Column<int>(type: "int", nullable: false).Annotation("MySql:ValueGenerationStrategy", 1),
+                    TechnicianId = table.Column<int>(type: "int", nullable: false),
                     Addressline1 = table.Column<string>(type: "longtext", maxLength: 250, nullable: false),
                     Addressline2 = table.Column<string>(type: "longtext", maxLength: 250, nullable: false),
                     City = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),

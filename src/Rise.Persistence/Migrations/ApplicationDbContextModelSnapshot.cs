@@ -47,7 +47,7 @@ namespace Rise.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id").HasAnnotation("MySql:ValueGenerationStrategy", 1)
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -142,7 +142,7 @@ namespace Rise.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id").HasAnnotation("MySql:ValueGenerationStrategy", 1)
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -234,7 +234,7 @@ namespace Rise.Persistence.Migrations
 
             modelBuilder.Entity("Rise.Domain.Products.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id").HasAnnotation("MySql:ValueGenerationStrategy", 1)
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -270,7 +270,7 @@ namespace Rise.Persistence.Migrations
 
             modelBuilder.Entity("Rise.Domain.Projects.Project", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id").HasAnnotation("MySql:ValueGenerationStrategy", 1)
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -306,7 +306,7 @@ namespace Rise.Persistence.Migrations
 
             modelBuilder.Entity("Rise.Domain.Projects.Technician", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id").HasAnnotation("MySql:ValueGenerationStrategy", 1)
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
