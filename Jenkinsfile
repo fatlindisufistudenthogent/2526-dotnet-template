@@ -22,6 +22,9 @@ pipeline {
                 sh '''
                     rsync -av --delete --exclude='Logs/' --exclude='.aspnet/' --no-perms --no-owner --no-times -e 'ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null' ./publish/ vagrant@192.168.56.10:/opt/rise/
                     ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no vagrant@192.168.56.10 "sudo systemctl restart rise"
+
+                    rsync -av --delete --exclude='Logs/' --exclude='.aspnet/' --no-perms --no-owner --no-times -e 'ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null' ./publish/ azureuser@20.240.184.27:/opt/rise/
+                    ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no azureuser@20.240.184.27 "sudo systemctl restart rise"
                 '''
             }
         }
