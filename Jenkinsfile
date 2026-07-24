@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Lint') {
+            steps {
+                sh 'dotnet format --verify-no-changes Rise.sln'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'dotnet build Rise.sln'
