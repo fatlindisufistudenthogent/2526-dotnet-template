@@ -70,3 +70,13 @@ Configuratie wijzigen
 dotnet build Rise.sln    # controleer of het compileert
 dotnet test Rise.sln     # run de tests
 dotnet run --project src/Rise.Server  # start de app lokaal
+
+<!-- waarom geen dotnet build test bij migration adden
+
+Omdat dotnet ef migrations add al intern een dotnet build doet. Je ziet het in de output:
+
+Build started...
+Build succeeded.
+Als de build faalt, faalt ook de migration aanmaak. Dus aparte dotnet build is niet nodig.
+
+En dotnet test hoef je niet te doen voor een migration — de migration verandert alleen de database structuur, niet de business logica die getest wordt. -->
