@@ -20,7 +20,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> opts) :
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Project> Projects => Set<Project>();
     public DbSet<Technician> Technicians => Set<Technician>();
-  
+
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         // All columns in the database have a maxlength of 4000.
@@ -36,5 +36,52 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> opts) :
         base.OnModelCreating(modelBuilder);
         // Applying all types of IEntityTypeConfiguration in the Persistence project.
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+        // fix for MariaDB max length of IdentityUser and IdentityRole
+        modelBuilder.Entity<IdentityRole>(entity =>
+        {
+            entity.Property(e => e.Id).HasMaxLength(255);
+            entity.Property(e => e.Name).HasMaxLength(255);
+            entity.Property(e => e.NormalizedName).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<IdentityUser>(entity =>
+        {
+            entity.Property(e => e.Id).HasMaxLength(255);
+            entity.Property(e => e.PasswordHash).HasColumnType("longtext");
+            entity.Property(e => e.SecurityStamp).HasColumnType("longtext");
+            entity.Property(e => e.ConcurrencyStamp).HasColumnType("longtext");
+            entity.Property(e => e.PhoneNumber).HasColumnType("longtext");
+        });
+
+        modelBuilder.Entity<IdentityUserRole<string>>(entity =>
+        {
+            entity.Property(e => e.UserId).HasMaxLength(255);
+            entity.Property(e => e.RoleId).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<IdentityUserClaim<string>>(entity =>
+        {
+            entity.Property(e => e.UserId).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
+        {
+            entity.Property(e => e.UserId).HasMaxLength(255);
+            entity.Property(e => e.LoginProvider).HasMaxLength(255);
+            entity.Property(e => e.ProviderKey).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<IdentityUserToken<string>>(entity =>
+        {
+            entity.Property(e => e.UserId).HasMaxLength(255);
+            entity.Property(e => e.LoginProvider).HasMaxLength(255);
+            entity.Property(e => e.Name).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<IdentityRoleClaim<string>>(entity =>
+        {
+            entity.Property(e => e.RoleId).HasMaxLength(255);
+        });
+
     }
 }

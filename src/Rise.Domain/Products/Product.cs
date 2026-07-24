@@ -16,10 +16,19 @@ public class Product : Entity
         set => _description = Guard.Against.NullOrWhiteSpace(value);
     }
 
-    private string _test = string.Empty;
-    public string Test
-    {
-        get => _test;
-        set => _test = Guard.Against.NullOrWhiteSpace(value);
-    }
+    // private string _category = string.Empty;
+    // public string Category
+    // {
+    //     get => _category;
+    //     set => _category = Guard.Against.NullOrWhiteSpace(value);
+    // }
+
+
+    // private string _test = string.Empty;
+    // public string Test
+    // {
+    //     get => _test;
+    //     set => _test = Guard.Against.NullOrWhiteSpace(value);
+    // }
+
 }

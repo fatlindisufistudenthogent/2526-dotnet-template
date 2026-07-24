@@ -24,7 +24,7 @@ try
     builder.Services
         .AddSerilog((_, lc) => lc.ReadFrom.Configuration(builder.Configuration) // Configuration in AppSettings.json
             .Destructure.UsingAttributes()) // Sensitive data logging
-        .AddIdentity<IdentityUser, IdentityRole>() 
+        .AddIdentity<IdentityUser, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .Services.AddDbContext<ApplicationDbContext>(o =>
         {
@@ -32,14 +32,9 @@ try
                                    throw new InvalidOperationException("Connection string 'DatabaseConnection' not found.");
             // o.UseSqlite(connectionString); // Swap Sqlite for your database provider (e.g. Sql Server, MySQL, PostgreSQL, etc.).
             // new one
-            if (builder.Environment.IsDevelopment())
-            {
-                o.UseSqlite(connectionString);
-            }
-            else
-            {
-                o.UseMySql(connectionString, new MariaDbServerVersion(new Version(10, 6)));
-            }            
+
+            o.UseMySql(connectionString, new MariaDbServerVersion(new Version(10, 6)));
+
             o.EnableDetailedErrors();
             if (builder.Environment.IsDevelopment())
             {
