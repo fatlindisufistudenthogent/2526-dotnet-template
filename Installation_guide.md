@@ -50,7 +50,7 @@ cd src\Rise.Persistence
 Remove-Item Migrations\* -Force
 dotnet ef migrations add Initial --startup-project ..\Rise.Server\
 
-
+(altijd)
 --- 
 
 alleen bij wijzigingen dus Wanneer WEL migration nodig:
@@ -66,6 +66,7 @@ Business logica wijzigen
 API endpoint toevoegen
 Configuratie wijzigen
 
+(enkel lokaal : https:localhost:5001 anders jenkins doet dat)
 dotnet build Rise.sln    # controleer of het compileert
 dotnet test Rise.sln     # run de tests
 dotnet run --project src/Rise.Server  # start de app lokaal
