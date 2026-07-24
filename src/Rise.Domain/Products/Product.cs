@@ -15,4 +15,11 @@ public class Product : Entity
         get => _description;
         set => _description = Guard.Against.NullOrWhiteSpace(value);
     }
+
+    private string _test = string.Empty;
+    public string Test
+    {
+        get => _test;
+        set => _test = Guard.Against.NullOrWhiteSpace(value);
+    }
 }
