@@ -18,6 +18,14 @@ dotnet publish src/Rise.Server/Rise.Server.csproj -c Release -o C:\Users\fatli\D
 
 ---
 
+install mariadb op je host
+
+& "C:\Program Files\MariaDB 12.3\bin\mysqld.exe" --install                                         
+                                                             
+Start-Service -Name "MySQL"                                                                        
+                                                           
+---
+
 
 # 1. Kolom toevoegen aan C# klasse in Rise.Domain
 
