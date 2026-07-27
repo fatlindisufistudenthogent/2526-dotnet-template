@@ -20,11 +20,11 @@ dotnet publish src/Rise.Server/Rise.Server.csproj -c Release -o C:\Users\fatli\D
 
 install mariadb op je host, uitvoeren als administrator
 
-winget install MariaDB.Server                                                 
+winget install MariaDB.Server
 
 & "C:\Program Files\MariaDB 12.3\bin\mysqld.exe" --install                                         
                                                              
-Start-Service -Name "MySQL"                                                                        
+Start-Service -Name "MySQL"                     
                                                            
 ---
 
