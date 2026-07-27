@@ -9,7 +9,7 @@ public class Product : Entity
         set => _name = Guard.Against.NullOrWhiteSpace(value);
     }
 
-    private string _description = ;
+    private string _description = string.Empty;
     public string Description
     {
         get => _description;
