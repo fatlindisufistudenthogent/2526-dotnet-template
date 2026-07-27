@@ -12,7 +12,7 @@ public class Product : Entity
     private string _description = string.Empty;
     public string Description
     {
-    get => _description;
+        get => _description;
         set => _description = Guard.Against.NullOrWhiteSpace(value);
     }
 
