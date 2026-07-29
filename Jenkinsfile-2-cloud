@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    rsync -av --delete --exclude='Logs/' --exclude='.aspnet/' --exclude='wwwroot/appsettings.Production.json' --no-perms --no-owner --no-times -e 'ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null' ./publish/ azureuser@135.116.80.242:/opt/rise/
+                    rsync -av --delete --exclude='Logs/' --exclude='.aspnet/' --exclude='wwwroot/appsettings.Production.json' --exclude='appsettings.Production.json' --no-perms --no-owner --no-times -e 'ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null' ./publish/ azureuser@135.116.80.242:/opt/rise/
                     ssh -i /var/lib/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no azureuser@135.116.80.242 "sudo systemctl restart rise"
                 '''
             }
