@@ -24,11 +24,11 @@ public class Product : Entity
     // }
 
 
-    // private string _test = string.Empty;
-    // public string Test
-    // {
-    //     get => _test;
-    //     set => _test = Guard.Against.NullOrWhiteSpace(value);
-    // }
+    private string _test = string.Empty;
+    public string Test
+    {
+        get => _test;
+        set => _test = Guard.Against.NullOrWhiteSpace(value);
+    }
 
 }
