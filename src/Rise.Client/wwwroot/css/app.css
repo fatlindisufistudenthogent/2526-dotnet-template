@@ -73,6 +73,6 @@ h1:focus {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
-/* body {
+body {
     background-color: lightblue;
-} */
+}
